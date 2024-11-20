@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Series</title>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class = "col">
+                <h1 style="background-color: #4801fc; color:white">
+                    Upcoming conferences
+                </h1>
+            </div>    
+        </div>
+        <div class="row">
+            <div class="col">
+                
+                <table class="table table-striped">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Starts</th>
+                        <th scope="col">Ends</th>
+                      </tr>
+                    </thead>
+                    <tbody id="series">
+                      <tr *ngFor="let conferencia of conferencias">
+                        <td >
+                          {{conferencia.id}}
+                        </td>
+                        <td style = "color:#1E90FF" (click)="onSelected(conferencia)">
+                          {{conferencia.name}}
+                        </td>
+                        <td>
+                          {{conferencia.starts}}
+                        </td>
+                        <td>
+                          {{conferencia.ends}}
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+            <div class="col" *ngIf="selected">
+              <app-conferencias-detail [conferenciaDetail]="selectedConference"></app-conferencias-detail>
+            </div>
+        </div>
+        <div class = "row">
+            <div class="col">
+                <h3 style = "font-weight: normal;" id="promedio">
+                  Upcoming conferences: {{upcomingConferences}}
+                </h3>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
